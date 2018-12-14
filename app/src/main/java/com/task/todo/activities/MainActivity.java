@@ -19,9 +19,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-import javax.xml.transform.Result;
-
-public class Main2Activity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     public final static int EDIT_REQUEST_CODE=20;
     public final static String ITEM_TEXT="itemText";
     public final static String ITEM_POSITION="itemPosition";
@@ -33,7 +31,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
 
         readItems();
         itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
@@ -66,15 +64,7 @@ public class Main2Activity extends AppCompatActivity {
         });
 
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent=new Intent(Main2Activity.this, EditActivity.class);
-                intent.putExtra(ITEM_TEXT,items.get(i));
-                intent.putExtra(ITEM_POSITION,i);
-                startActivityForResult(intent, EDIT_REQUEST_CODE);
-            }
-        });
+
     }
 
     @Override
